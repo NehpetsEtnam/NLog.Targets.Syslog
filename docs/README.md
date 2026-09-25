@@ -1,12 +1,13 @@
 
-[![Build status](https://xdevapps.visualstudio.com/XDev.Maui.ManualCrop/_apis/build/status/XDev.NLog.Targets.Syslog%20-%20CI)](https://xdevapps.visualstudio.com/XDev.Maui.ManualCrop/_build/latest?definitionId=70)<br/>
-[![Releases](https://buildstats.info/nuget/XDev.Nlog.Targets.Syslog)](https://www.nuget.org/packages/XDev.NLog.Targets.Syslog)
+[![Build and publish](https://github.com/NehpetsEtnam/NLog.Targets.Syslog/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/NehpetsEtnam/NLog.Targets.Syslog/actions/workflows/build-and-publish.yml)<br/>
+[![NuGet](https://img.shields.io/nuget/v/NLog.Targets.Syslog.Maui)](https://www.nuget.org/packages/NLog.Targets.Syslog.Maui)
 
 
 Syslog target for NLog
 ======================
 
-**XDev NLog Syslog** is a custom target for [**NLog**](https://nlog-project.org/) available as [XDev.NLog.Targets.Syslog](https://www.nuget.org/packages/XDev.NLog.Targets.Syslog) on Nuget.
+**NLog Syslog for MAUI** is a custom target for [**NLog**](https://nlog-project.org/) available as [NLog.Targets.Syslog.Maui](https://www.nuget.org/packages/NLog.Targets.Syslog.Maui) on Nuget.
+It continues [XDev.NLog.Targets.Syslog](https://www.nuget.org/packages/XDev.NLog.Targets.Syslog) and is namespace-compatible with it, so switching is a package reference change only.
 
 It can be used with version 5.0.0 and later of NLog and allows to send logging messages to a Syslog server.
 

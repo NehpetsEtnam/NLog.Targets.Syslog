@@ -3,7 +3,7 @@ name: '❔ Question'
 about: Ask for clarifications
 title: ''
 labels: question
-assignees: luigiberrettini
+assignees: NehpetsEtnam
 
 ---
 

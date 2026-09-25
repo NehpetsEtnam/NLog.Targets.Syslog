@@ -3,7 +3,7 @@ name: '🚀 Feature'
 about: Suggest a feature (new capability)
 title: ''
 labels: feature
-assignees: luigiberrettini
+assignees: NehpetsEtnam
 
 ---
 

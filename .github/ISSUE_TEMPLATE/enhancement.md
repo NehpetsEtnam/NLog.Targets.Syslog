@@ -3,7 +3,7 @@ name: '💡 Enhancement'
 about: Suggest an enhancement (improvement not new capability)
 title: ''
 labels: enhancement
-assignees: luigiberrettini
+assignees: NehpetsEtnam
 
 ---
 

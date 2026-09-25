@@ -3,7 +3,7 @@ name: '📚 Documentation'
 about: Suggest a documentation improvement
 title: ''
 labels: documentation
-assignees: luigiberrettini
+assignees: NehpetsEtnam
 
 ---
 

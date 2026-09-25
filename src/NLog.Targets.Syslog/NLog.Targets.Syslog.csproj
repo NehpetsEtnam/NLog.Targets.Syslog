@@ -9,7 +9,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
 
-    <Product>XDev.NLog.Targets.Syslog</Product>
+    <Product>NLog.Targets.Syslog.Maui</Product>
     <AssemblyTitle>NLog Syslog target</AssemblyTitle>
     <AssemblyName>NLog.Targets.Syslog</AssemblyName>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
@@ -19,22 +19,27 @@
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
-    <Company>XDev</Company>
-    <Authors>XDev</Authors>
-    <PackageId>XDev.NLog.Targets.Syslog</PackageId>
-    <Title>XDev.NLog.Targets.Syslog</Title>
+    <Company>MauiDev</Company>
+    <Authors>MauiDev</Authors>
+    <PackageId>NLog.Targets.Syslog.Maui</PackageId>
+    <Title>NLog.Targets.Syslog.Maui</Title>
     <Description>
       Custom target for NLog to send logging messages to a Syslog server.
-      Forked from https://github.com/luigiberrettini/NLog.Targets.Syslog and namespace-compatible.
+      Forked from https://github.com/jasells/NLog.Targets.Syslog which is forked from https://github.com/luigiberrettini/NLog.Targets.Syslog and namespace-compatible.
     </Description>
     <PackageTags>NLog Syslog Log Logging Maui</PackageTags>
     <Version>0.1.0-alpha.1</Version>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/jasells/NLog.Targets.Syslog</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/NehpetsEtnam/NLog.Targets.Syslog</PackageProjectUrl>
     <PackageIcon>NLog.Targets.Syslog.png</PackageIcon>
-    <RepositoryUrl>https://github.com/jasells/NLog.Targets.Syslog</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/NehpetsEtnam/NLog.Targets.Syslog</RepositoryUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageReleaseNotes>
+      Continues XDev.NLog.Targets.Syslog under a new package ID; namespaces and assembly name are unchanged.
+      Fixed TCP on Android: Android was detected as macOS, so keepalive used Darwin socket option
+      values the Linux kernel rejects and every connection failed. Android now uses the Linux values.
+      A failure to apply keepalive tuning no longer fails the connection; OS defaults are used instead.
       Added support for NLog v6 by replacing SdIdConfig with SimpleLayout
     </PackageReleaseNotes>
     <RepositoryType>Git</RepositoryType>
@@ -51,6 +56,10 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
     <PackageReference Include="NLog" Version="5.0.0" />
     <PackageReference Include="Polly.Contrib.WaitAndRetry" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="NLog.Targets.Syslog.Tests" />
   </ItemGroup>
 
   <ItemGroup>

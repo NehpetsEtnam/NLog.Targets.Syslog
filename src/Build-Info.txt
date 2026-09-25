@@ -11,7 +11,7 @@
 /// My.Package
 /// </example>
 [Package Name]
-XDev.NLog.Targets.Syslog
+NLog.Targets.Syslog.Maui
 
 /// <summary>
 /// Specifies the 3 octet version of the release.  This is the versioning schema used by Nuget.
@@ -22,4 +22,4 @@ XDev.NLog.Targets.Syslog
 /// 1.2.3
 /// </example>
 [Release Version]
-8.1.0
+8.1.1
