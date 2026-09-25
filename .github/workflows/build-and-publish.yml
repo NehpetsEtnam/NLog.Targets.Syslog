@@ -34,14 +34,15 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '8.0.x'
 
       - name: Test
-        run: dotnet test ${{ env.TEST_PROJECT }} --configuration Release
+        # GeneratePackageOnBuild would otherwise pack the library here too; packing is the pack job.
+        run: dotnet test ${{ env.TEST_PROJECT }} --configuration Release -p:GeneratePackageOnBuild=false
 
   pack:
     name: Pack
@@ -50,11 +51,11 @@ jobs:
     outputs:
       version: ${{ steps.version.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0 # SourceLink needs the commit history
 
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '8.0.x'
 
@@ -96,7 +97,7 @@ jobs:
           -p:Version=${{ steps.version.outputs.version }}
           --output artifacts
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: nuget-package
           path: artifacts/*.nupkg
@@ -116,11 +117,11 @@ jobs:
       id-token: write # required for NuGet/login; without it the login fails with 403
       contents: read
     steps:
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '8.0.x'
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: nuget-package
           path: artifacts

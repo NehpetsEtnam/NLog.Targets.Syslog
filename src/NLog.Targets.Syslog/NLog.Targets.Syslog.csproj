@@ -65,7 +65,7 @@
   <ItemGroup>
     <None Include="..\..\LICENSE" Pack="True" PackagePath="" />
     <None Include="..\NLog.Targets.Syslog.png" Pack="true" PackagePath="" />
-    <None Include="..\..\Docs\README.md" Pack="true" PackagePath="" />
+    <None Include="..\..\docs\README.md" Pack="true" PackagePath="" />
     <Content Include="bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).pdb" PackagePath="lib\$(TargetFramework)\$(AssemblyName).pdb">
       <PackageCopyToOutput>true</PackageCopyToOutput>
     </Content>
