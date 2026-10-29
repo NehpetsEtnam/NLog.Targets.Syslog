@@ -58,6 +58,18 @@ public class SocketInitializationTests
     }
 
     [Fact]
+    public void SendPendingDataOnClose_DisablesZeroTimeoutLinger()
+    {
+        // A zero-timeout linger makes close discard unsent data; a crashing app's last log goes with it.
+        using var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        socket.LingerState = new LingerOption(true, 0);
+
+        SocketInitialization.ForCurrentOs().SendPendingDataOnClose(socket);
+
+        Assert.False(socket.LingerState!.Enabled);
+    }
+
+    [Fact]
     public void SetKeepAlive_RejectedOptionValues_DoesNotThrowAndKeepsKeepAliveOn()
     {
         // The Android failure mode: the OS rejects the raw option values. That must not stop the

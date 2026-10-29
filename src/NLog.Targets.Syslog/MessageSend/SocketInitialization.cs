@@ -54,9 +54,18 @@ namespace NLog.Targets.Syslog.MessageSend
 
         public abstract void DisableAddressSharing(Socket socket);
 
-        public void DiscardPendingDataOnClose(Socket socket)
+        /// <summary>
+        /// Lets the OS finish sending queued data after the socket is closed.
+        /// <para>
+        /// A zero-timeout linger (the previous setting) makes close reset the connection and drop
+        /// whatever is still in the send buffer. The OS closes the socket that way when the process
+        /// dies, so the last messages before a crash - the ones that explain it - were lost even
+        /// after a flush had reported them sent.
+        /// </para>
+        /// </summary>
+        public void SendPendingDataOnClose(Socket socket)
         {
-            socket.LingerState = new LingerOption(true, 0);
+            socket.LingerState = new LingerOption(false, 0);
         }
 
         public void SetKeepAlive(Socket socket, KeepAliveConfig keepAliveConfig)

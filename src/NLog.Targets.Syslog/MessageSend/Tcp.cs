@@ -41,7 +41,7 @@ namespace NLog.Targets.Syslog.MessageSend
         {
             tcp = new TcpClient(ipEndPoint.AddressFamily);
             SocketInitialization.DisableAddressSharing(tcp.Client);
-            SocketInitialization.DiscardPendingDataOnClose(tcp.Client);
+            SocketInitialization.SendPendingDataOnClose(tcp.Client);
             SocketInitialization.SetKeepAlive(tcp.Client, keepAliveConfig);
 
             return tcp
